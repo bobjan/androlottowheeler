@@ -33,7 +33,6 @@ public class MyButton {
 
     public void switchState(){
         picked = picked ? false : true;
-        Log.w(TAG,"changed state for " + value + " to " + picked);
     }
 
 }

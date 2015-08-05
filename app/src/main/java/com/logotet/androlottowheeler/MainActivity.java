@@ -26,12 +26,16 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        startFromPreferences();
+
         numPicker = (NumberPicker) findViewById(R.id.numberPicker);
         numPicker.setMaxValue(99);
         numPicker.setMinValue(20);
         numPicker.setValue(49);
         numPicker.setWrapSelectorWheel(false);
-
+    testMetrics();
         numPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
 
             @Override
@@ -42,7 +46,7 @@ public class MainActivity extends ActionBarActivity {
         });
         ///
 
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < AllStatic.maxNumbers; i++) {
             MyButton myb = new MyButton();
             myb.setValue(i + 1);
             myb.setPicked(false);
@@ -62,6 +66,13 @@ public class MainActivity extends ActionBarActivity {
             }
         });
     }
+
+    private void startFromPreferences(){
+        AllStatic.gameSize = 6;
+        AllStatic.maxNumbers = 49;
+        AllStatic.systemSize = 10;
+    }
+
     private void testMetrics(){
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -70,8 +81,10 @@ public class MainActivity extends ActionBarActivity {
         double dens=(double)dm.densityDpi;
         AllStatic.width = (int)(width * 160.0/dens);
         AllStatic.height = (int)(height * 160.0/dens);
-//        Log.w(TAG,"width = " + AllStatic.width + "dp");
-//        Log.w(TAG,"height = " + AllStatic.height + "dp" );
-//        Log.w(TAG,"density = " + dens );
+        AllStatic.pixelWidth = (int) width;
+        AllStatic.pixelHeight = (int)height;
+        Log.w(TAG,"width = " + AllStatic.width + "dp");
+        Log.w(TAG,"height = " + AllStatic.height + "dp" );
+        Log.w(TAG,"density = " + dens );
     }
 }
