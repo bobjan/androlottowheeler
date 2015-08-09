@@ -14,11 +14,18 @@ public class AllStatic {
     public static int pixelWidth;
     public static int pixelHeight;
 
-    public static int pickedCounter;
-    public static String pickedText;
+    public static int pickedCounter;  // for display purpose only; treba da bude jednak systemSize da bi se pristupilo generisanju koinacija
+    public static String pickedText; // for display purpose only;
     public static int gameSize;
     public static int systemSize; // broj brojeva koji se koristi za generisanje kombinacija; veci od gameSize!!
     public static int maxNumbers;
+
+// iz stare aplikacije Constants.
+    public static String fileNames = "sistem";
+    public  static int numbersPlayed;   // koliko se brojeva izvlaci // 5, 6 ili 7 == vrstaLotoa == lottoType
+    public static  int numbersInSystem;    // 39,  49 ili ...
+    public static ArrayList system = new ArrayList();
+    public static Wheel selectedWheel;
 
 
     public static void recalculate(){
