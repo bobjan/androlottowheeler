@@ -3,7 +3,7 @@ package com.logotet.androlottowheeler.model;
 import com.logotet.util.MainConverter;
 
 /**
- *
+ * Skraceni sistem, samo informacija o njemu, a ne i razrada
  */
 public class Wheel {
     private int odigranihBrojeva;

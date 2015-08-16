@@ -15,25 +15,26 @@ android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:id="@+id/lottoType">
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/rg_lottoType">
 
         <RadioButton
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="5"
-            android:id="@+id/radioButton"
+            android:id="@+id/rb_lotto5"
              />
         <RadioButton
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="6"
-            android:id="@+id/radioButton2"
+            android:id="@+id/rb_lotto6"
              />
         <RadioButton
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="7"
-            android:id="@+id/radioButton3"
+            android:id="@+id/rb_lotto7"
             />
 
 </RadioGroup>
@@ -46,6 +47,7 @@ android:orientation="vertical"
     <NumberPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:id="@+id/numberPicker"
         android:orientation="horizontal" />
 

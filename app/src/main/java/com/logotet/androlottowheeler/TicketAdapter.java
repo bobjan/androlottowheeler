@@ -2,7 +2,6 @@ package com.logotet.androlottowheeler;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.logotet.androlottowheeler.model.AllStatic;
-import com.logotet.androlottowheeler.model.MyButton;
+import com.logotet.androlottowheeler.model.MyNumberCell;
 
 /**
  * Created by boban on 8/2/15.
@@ -47,7 +46,7 @@ public class TicketAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        final MyButton myButton = (MyButton) getItem(position);
+        final MyNumberCell myButton = (MyNumberCell) getItem(position);
         Resources res = mContext.getResources();
         Button btn = new Button(mContext);
         int crno = res.getColor(R.color.black);
