@@ -1,66 +1,71 @@
-package com.logotet.androlottowheeler.parser;
+package com.logotet.androlottowheeler.threads;
+
+import android.content.res.AssetManager;
+import android.util.Log;
 
 import com.logotet.androlottowheeler.model.AllStatic;
+import com.logotet.androlottowheeler.model.FullGenerator;
 import com.logotet.androlottowheeler.model.IllegalKombinacijaException;
+import com.logotet.androlottowheeler.model.Mapper;
 import com.logotet.androlottowheeler.model.Sistem;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- * Cita trazeni wheel i popunjava klasu Sistem procitanim kombinacijama
+ * Created by boban on 8/18/15.
  */
-public class WheelStreamer {
+public class MappingThread extends Thread {
+    private static final String TAG = "MappingThread";
+
+    AssetManager assetManager;
+    private String folder;
+    private BufferedReader inFile;
     private Sistem sistem;
-    BufferedReader inFile;
-    private String bazaSistemName;
-    private int vrstaLotoa;
 
-    public WheelStreamer(String bazaSistemName) throws FileNotFoundException {
-        vrstaLotoa = AllStatic.numbersDrawn;
-        this.bazaSistemName = bazaSistemName;
-        String subfolder = null;
-        String filetype;
+    public MappingThread(AssetManager assetManager) {
+        super();
+        this.assetManager = assetManager;
+    }
 
-        switch (vrstaLotoa) {
+    @Override
+    public void run() {
+        if (AllStatic.fullWheel)
+            prepareFullWheels();
+        else
+            prepareAbrWheels();
+
+        Mapper mapper = new Mapper(sistem);
+        AllStatic.mappedSistem = mapper.getResultSistem(AllStatic.getPickedArray());
+    }
+
+    private void prepareAbrWheels() {
+        Log.w(TAG, "Lotto size = " + AllStatic.numbersDrawn);
+        switch (AllStatic.numbersDrawn) {
             case 5:
-                subfolder = "/fives";
-                filetype = ".LS5";
+                folder = "wheels/fives/";
                 break;
             case 7:
-                subfolder = "/sevens";
-                filetype = ".LS7";
+                folder = "wheels/sevens/";
                 break;
             default:
-                subfolder = "/sixes";
-                filetype = ".LS6";
+                folder = "wheels/sixes/";
                 break;
         }
-
-        String tmp = "wheels" + subfolder + "/" + bazaSistemName + filetype;
-        String ttt = this.getClass().getCanonicalName();
-        InputStream str = new FileInputStream(new File(tmp));
-
-        if (str == null)
-            throw new FileNotFoundException("Not Found " + tmp);
-        inFile = new BufferedReader(new InputStreamReader(str));
-        sistem = new Sistem();
+        try {
+            InputStream is = assetManager.open(folder + AllStatic.selectedWheel.getFullFileName());
+            inFile = new BufferedReader(new InputStreamReader(is));
+            sistem = new Sistem();
+            makeSistem();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    private String makeSistemName(String str) {
-        String s = str.substring(0, 2) + "-" + str.substring(2, 3) + "-" + str.substring(3, 4) + "-" + str.substring(4);
-        return s + "(S):  ";
-    }
 
-    public Sistem getSistem() {
-        makeSistem();
-        return sistem;
-    }
-
-    /***
-     *  cita ceo fajl; pravi komb i smest au klasu Sistem
-     *
-     * */
     private void makeSistem() {
         String linija = null;
         try {
@@ -71,12 +76,12 @@ public class WheelStreamer {
         if (linija == null)
             return;
 
-        if (vrstaLotoa == 7) {
-            if (!linija.equals(bazaSistemName))
-                return;
-        }
+//        if (AllStatic.lottoSize == 7) {
+//            if (!linija.equals(bazaSistemName))
+//                return;
+//        }
 
-        if (vrstaLotoa == 6) {              // razraditi proveru ispravnosti fajla !?
+        if (AllStatic.lottoSize == 6) {              // razraditi proveru ispravnosti fajla !?
             try {
                 linija = inFile.readLine();
                 if (linija == null)
@@ -92,7 +97,7 @@ public class WheelStreamer {
                 linija = null;
                 linija = inFile.readLine();
                 int[] komb;
-                switch (vrstaLotoa) {
+                switch (AllStatic.numbersDrawn) {
                     case 5:
                         komb = makeFiver(linija);
                         break;
@@ -103,8 +108,8 @@ public class WheelStreamer {
                         komb = makeSixer(linija);
                         break;
                 }
-
                 sistem.add(komb);
+                Log.w(TAG, linija);
             } catch (NullPointerException e) {
                 petlja = false;
             } catch (IllegalKombinacijaException e) {
@@ -170,4 +175,10 @@ public class WheelStreamer {
         return komb;
     }
 
+
+    private void prepareFullWheels() {
+        FullGenerator fg = new FullGenerator(AllStatic.selectedWheel.getSelectionSize(), AllStatic.selectedWheel.getNumbersDrawn());
+        sistem = fg.getFullSistem();
+
+    }
 }

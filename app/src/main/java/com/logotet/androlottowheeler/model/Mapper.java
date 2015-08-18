@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 /**
  * Mapper
- *
  */
 public class Mapper {
     private Sistem bazniSistem;

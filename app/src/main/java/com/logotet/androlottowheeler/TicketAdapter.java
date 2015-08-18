@@ -95,24 +95,23 @@ public class TicketAdapter extends BaseAdapter {
     }
 
     private void changeDisplayAtributes() {
-        if (AllStatic.pickedCounter == AllStatic.systemSize) {
+        if (AllStatic.pickedCounter == AllStatic.selectedWheel.getSelectionSize()) {
             btnGenerate.setVisibility(View.VISIBLE);
         } else {
             btnGenerate.setVisibility(View.GONE);
         }
-        if(AllStatic.pickedCounter > AllStatic.systemSize){
+        if (AllStatic.pickedCounter > AllStatic.selectedWheel.getSelectionSize()) {
             warningText.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             warningText.setVisibility(View.INVISIBLE);
         }
 
     }
 
 
-
     /**
      * setters for field from parent activity
-     * */
+     */
     public void setBtnGenerate(Button btnGenerate) {
         this.btnGenerate = btnGenerate;
     }

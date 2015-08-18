@@ -18,67 +18,60 @@ public class AllStatic {
 
     public static int pickedCounter;  // for display purpose only; treba da bude jednak systemSize da bi se pristupilo generisanju koinacija
     public static String pickedText; // for display purpose only;
-   public static int systemSize; // broj brojeva koji se koristi za generisanje kombinacija; veci od gameSize!!
-
-// iz stare aplikacije Constants.
-    public static String rootFolder = "wheels";
 
 
     // to be in SharedPreferences
-    public  static int numbersDrawn;   // koliko se brojeva izvlaci // 5, 6 ili 7 == vrstaLotoa == lottoType
-    public static  int lottoSize;    // 39,  49 ili ...
+    public static int numbersDrawn;   // koliko se brojeva izvlaci // 5, 6 ili 7 == vrstaLotoa == lottoType
+    public static int lottoSize;    // 39,  49 ili ...
     public static String email;
     public static boolean fullWheel;
 
 
-
-
-    public static ArrayList<FullWheel> fullSystems = new ArrayList();
+    public static ArrayList<Wheel> fullSystems = new ArrayList();
     public static ArrayList<Wheel> wheelSystems = new ArrayList();
 
 
-    public static Sistem selectedSistem;
+    //    public static Sistem selectedSistem;
     public static Sistem mappedSistem;
-
-
-
     public static Wheel selectedWheel;
 
-    public static void recalculate(){
+
+    public static void recalculate() {
         int brojac = 0;
         Iterator it = tiket.iterator();
         StringBuffer sb = new StringBuffer();
         String dash = "";
-        while(it.hasNext()){
+        while (it.hasNext()) {
             MyNumberCell myButton = (MyNumberCell) it.next();
-            if(sb.length() != 0)
+            if (sb.length() != 0)
                 dash = "-";
-            if(myButton.isPicked()){
+            if (myButton.isPicked()) {
                 brojac++;
                 sb.append(dash);
                 sb.append(myButton.getValue() + "");
             }
         }
-        pickedText =  sb.toString();
+        pickedText = sb.toString();
         pickedCounter = brojac;
     }
 
     public static void clearAll() {
         Iterator it = tiket.iterator();
-        while(it.hasNext()) {
+        while (it.hasNext()) {
             MyNumberCell myButton = (MyNumberCell) it.next();
             myButton.setPicked(false);
         }
         pickedCounter = 0;
         pickedText = "";
     }
-    public int[] getPickedArray(){
-        int[] niz = new int[systemSize];
+
+    public static int[] getPickedArray() {
+        int[] niz = new int[selectedWheel.getSelectionSize()];
         int idx = 0;
         Iterator it = tiket.iterator();
-        while(it.hasNext()) {
+        while (it.hasNext()) {
             MyNumberCell myButton = (MyNumberCell) it.next();
-            if(myButton.isPicked())
+            if (myButton.isPicked())
                 niz[idx++] = myButton.getValue();
         }
         return niz;

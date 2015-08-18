@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.logotet.androlottowheeler.model.AllStatic;
-import com.logotet.androlottowheeler.model.FullWheel;
+import com.logotet.androlottowheeler.model.Wheel;
 
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class FullAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private Activity activity;
-    ArrayList<FullWheel> arrayList;
+    ArrayList<Wheel> arrayList;
 
     public FullAdapter(Activity activity) {
         this.activity = activity;
@@ -51,9 +51,9 @@ public class FullAdapter extends BaseAdapter {
         TextView tvfBroj = (TextView) convertView.findViewById(R.id.tvfBrojBrojeva);
         TextView tvfKombinacija = (TextView) convertView.findViewById(R.id.tvfKombinacija);
 
-        FullWheel fullWheel = (FullWheel) getItem(position);
-        tvfBroj.setText(fullWheel.getSize() + "");
-        tvfKombinacija.setText(fullWheel.getBrojKombinacija() + "");
+        Wheel wheel = (Wheel) getItem(position);
+        tvfBroj.setText(wheel.getSelectionSize() + "");
+        tvfKombinacija.setText(wheel.getBrojKombinacija() + "");
         return convertView;
     }
 }

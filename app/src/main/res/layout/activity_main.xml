@@ -57,4 +57,9 @@ android:orientation="vertical"
     android:layout_height="match_parent"
     android:text="Continue"
     android:id="@+id/btnContinue"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Test selection"
+        android:id="@+id/btnSelection"/>
 </LinearLayout>

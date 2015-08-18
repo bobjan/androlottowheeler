@@ -18,20 +18,20 @@ public class FullGenerator {
             komb[i] = i;
         }
 
-        int pivot = base -1;
-        pivot = base -1;
-        while(pivot >= 0){
+        int pivot = base - 1;
+        pivot = base - 1;
+        while (pivot >= 0) {
             dodaj(komb);
-            while(komb[pivot] < max[pivot]){
+            while (komb[pivot] < max[pivot]) {
                 komb[pivot]++;
                 dodaj(komb);
             }
             pivot--;
-            if(pivot >= 0){
+            if (pivot >= 0) {
                 komb[pivot]++;
-                if(komb[pivot] < max[pivot]){
-                    for (int i = pivot+1; i < komb.length; i++) {
-                        komb[i] = komb[i-1]+1;
+                if (komb[pivot] < max[pivot]) {
+                    for (int i = pivot + 1; i < komb.length; i++) {
+                        komb[i] = komb[i - 1] + 1;
                     }
                     pivot = base - 1;
                 }
@@ -47,6 +47,7 @@ public class FullGenerator {
         }
         fullSistem.add(tmp);
     }
+
     public Sistem getFullSistem() {
         return fullSistem;
     }

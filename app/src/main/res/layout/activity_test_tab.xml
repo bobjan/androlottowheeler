@@ -75,9 +75,35 @@
         android:layout_below="@+id/llTop"
         android:layout_alignParentLeft="true">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Abbreviated wheel frame"
+            android:background="@color/myyellow"
+            android:textColor="@color/black"
+            android:text="numbers selected"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="garantee"
+            android:textColor="@color/white"
+            android:background="@color/myblue"
+            android:paddingLeft="50dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="if drawn"
+            android:textColor="@color/white"
+            android:background="@color/myred"
+            android:paddingLeft="120dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="combinations"
+            android:textColor="@color/black"
+            android:background="@color/white"
+            android:gravity="right"
             />
         <ListView
             android:layout_width="match_parent"

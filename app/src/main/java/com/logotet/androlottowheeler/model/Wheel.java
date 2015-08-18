@@ -6,22 +6,33 @@ import com.logotet.util.MainConverter;
  * Skraceni sistem, samo informacija o njemu, a ne i razrada
  */
 public class Wheel {
-    private int odigranihBrojeva;
+    private int selectionSize;
     private int garancija;
     private int odIzvucenih;
     private int brojKombinacija;
-    private int vrstaLotoa;
+    private int numbersDrawn;  // 5,6 ili 7
+    private boolean fullWheel;
 
-    public Wheel(int odgranihBrojeva, int garancija, int odIzvucenih, int brojKombinacija, int vrstaLotoa) {
-        this.odigranihBrojeva = odgranihBrojeva;
+    public Wheel(int size, int garancija, int odIzvucenih, int brojKombinacija, int vrstaLotoa) {
+        this.selectionSize = size;
         this.garancija = garancija;
         this.odIzvucenih = odIzvucenih;
         this.brojKombinacija = brojKombinacija;
-        this.vrstaLotoa = vrstaLotoa;
+        this.numbersDrawn = vrstaLotoa;
+        fullWheel = false;
     }
 
-    public int getOdigranihBrojeva() {
-        return odigranihBrojeva;
+    public Wheel(int selectionSize, int vrstaLotoa) {
+        this.selectionSize = selectionSize;
+        this.numbersDrawn = vrstaLotoa;
+        this.garancija = numbersDrawn;
+        this.odIzvucenih = numbersDrawn;
+        this.brojKombinacija = Kombinacija.calculateKomb(selectionSize, numbersDrawn);
+        fullWheel = true;
+    }
+
+    public int getSelectionSize() {
+        return selectionSize;
     }
 
     public int getGarancija() {
@@ -36,19 +47,19 @@ public class Wheel {
         return brojKombinacija;
     }
 
-    public int getVrstaLotoa() {
-        return vrstaLotoa;
+    public int getNumbersDrawn() {
+        return numbersDrawn;
     }
 
     public String getFileName() {
-        return MainConverter.intToString(odigranihBrojeva, 2) +
+        return MainConverter.intToString(selectionSize, 2) +
                 MainConverter.intToString(garancija, 1) +
                 MainConverter.intToString(odIzvucenih, 1) +
                 MainConverter.intToString(brojKombinacija, 4);
     }
 
     public String getFileType() {
-        switch (vrstaLotoa) {
+        switch (numbersDrawn) {
             case 5:
                 return "LS5";
             case 7:

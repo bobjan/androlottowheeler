@@ -2,10 +2,9 @@ package com.logotet.androlottowheeler;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
@@ -21,9 +20,10 @@ public class MainActivity extends ActionBarActivity {
     private static final String TAG = "MainActivity";
     NumberPicker numPicker = null;
     Button btnContinue;
+    Button btnSelection;
     Intent akcija;
     RadioGroup radioGroup;
-
+    Intent testIntent;
     private SharedPreferences prefs;
 
     @Override
@@ -41,9 +41,9 @@ public class MainActivity extends ActionBarActivity {
         numPicker.setValue(AllStatic.lottoSize);
         numPicker.setWrapSelectorWheel(false);
 
-        radioGroup = (RadioGroup)findViewById(R.id.rg_lottoType);
+        radioGroup = (RadioGroup) findViewById(R.id.rg_lottoType);
 
-        switch(AllStatic.numbersDrawn){
+        switch (AllStatic.numbersDrawn) {
             case 5:
                 radioGroup.check(R.id.rb_lotto5);
                 break;
@@ -72,7 +72,6 @@ public class MainActivity extends ActionBarActivity {
         });
 
 
-
 //        akcija = new Intent(this, GridActivity.class);
 //        akcija = new Intent(this, SelectionActivity.class);
         akcija = new Intent(this, TestTabActivity.class);
@@ -99,6 +98,17 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(akcija);
             }
         });
+
+        btnSelection = (Button) findViewById(R.id.btnSelection);
+        testIntent = new Intent(this, SelectionActivity.class);
+        btnSelection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(testIntent);
+            }
+        });
+
+
     }
 
     private void setPreferences() {
@@ -108,7 +118,7 @@ public class MainActivity extends ActionBarActivity {
         editor.commit();
     }
 
-    private void startFromPreferences(){
+    private void startFromPreferences() {
         prefs = getSharedPreferences(AllStatic.MY_PREFS_NAME, MODE_PRIVATE);
         AllStatic.numbersDrawn = prefs.getInt("numdrawn", 6);
         AllStatic.email = prefs.getString("email", "");
@@ -117,16 +127,16 @@ public class MainActivity extends ActionBarActivity {
 //        Log.w(TAG,"numdrawn = " + AllStatic.numbersDrawn);
     }
 
-    private void testMetrics(){
+    private void testMetrics() {
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
-        double width=(double)dm.widthPixels;
-        double height=(double)dm.heightPixels;
-        double dens=(double)dm.densityDpi;
-        AllStatic.width = (int)(width * 160.0/dens);
-        AllStatic.height = (int)(height * 160.0/dens);
+        double width = (double) dm.widthPixels;
+        double height = (double) dm.heightPixels;
+        double dens = (double) dm.densityDpi;
+        AllStatic.width = (int) (width * 160.0 / dens);
+        AllStatic.height = (int) (height * 160.0 / dens);
         AllStatic.pixelWidth = (int) width;
-        AllStatic.pixelHeight = (int)height;
+        AllStatic.pixelHeight = (int) height;
 //        Log.w(TAG,"width = " + AllStatic.width + "dp");
 //        Log.w(TAG,"height = " + AllStatic.height + "dp" );
 //        Log.w(TAG,"density = " + dens );

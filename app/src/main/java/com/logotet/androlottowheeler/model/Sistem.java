@@ -1,7 +1,5 @@
 package com.logotet.androlottowheeler.model;
 
-import com.logotet.androlottowheeler.model.Kombinacija;
-
 import java.util.ArrayList;
 
 
@@ -11,12 +9,11 @@ import java.util.ArrayList;
  * Date: Apr 20, 2005
  */
 public class Sistem {
-    private ArrayList kombinacije;
+    private ArrayList<Kombinacija> kombinacije;
 
     public Sistem() {
         kombinacije = new ArrayList();
     }
-
 
     public void add(int[] broj) {
         Kombinacija k = new Kombinacija(broj);

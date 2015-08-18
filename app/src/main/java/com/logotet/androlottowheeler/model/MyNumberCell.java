@@ -1,7 +1,5 @@
 package com.logotet.androlottowheeler.model;
 
-import android.util.Log;
-
 /**
  * Created by boban on 8/2/15.
  */
@@ -31,7 +29,7 @@ public class MyNumberCell {
         this.value = value;
     }
 
-    public void switchState(){
+    public void switchState() {
         picked = picked ? false : true;
     }
 

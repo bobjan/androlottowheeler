@@ -9,22 +9,24 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.logotet.androlottowheeler.model.AllStatic;
-import com.logotet.androlottowheeler.model.Wheel;
+import com.logotet.androlottowheeler.model.Kombinacija;
 
 import java.util.ArrayList;
 
+
 /**
- * Created by boban on 8/15/15.
+ * Created by boban on 8/18/15.
  */
-public class AbrAdapter extends BaseAdapter {
+public class GeneratedAdapter extends BaseAdapter {
+    private static final String TAG = "GeneratedAdapter";
+
     private LayoutInflater inflater;
     private Activity activity;
+    ArrayList arrayList;
 
-    private ArrayList<Wheel> arrayList;
-
-    public AbrAdapter(Activity activity) {
+    public GeneratedAdapter(Activity activity) {
         this.activity = activity;
-        arrayList = AllStatic.wheelSystems;
+        arrayList = AllStatic.mappedSistem.getKombinacije();
     }
 
     @Override
@@ -47,20 +49,14 @@ public class AbrAdapter extends BaseAdapter {
         if (inflater == null)
             inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.abrrow, null);
+            convertView = inflater.inflate(R.layout.genrow, null);
 
-        TextView tvBrojBrojeva = (TextView) convertView.findViewById(R.id.tvBrojBrojeva);
-        TextView tvGarancija = (TextView) convertView.findViewById(R.id.tvGarancija);
-        TextView tvOdPogodaka = (TextView) convertView.findViewById(R.id.tvOdPogodaka);
-        TextView tvKombinacija = (TextView) convertView.findViewById(R.id.tvKombinacija);
+        TextView tvGenerKomb = (TextView) convertView.findViewById(R.id.tvGenerated);
 
-        Wheel wheel = (Wheel) getItem(position);
+        Kombinacija k = (Kombinacija) getItem(position);
 
+        tvGenerKomb.setText(k.toString());
 
-        tvBrojBrojeva.setText(wheel.getSelectionSize() + "");
-        tvGarancija.setText(wheel.getGarancija() + "");
-        tvOdPogodaka.setText(wheel.getOdIzvucenih() + "");
-        tvKombinacija.setText(wheel.getBrojKombinacija() + "");
 
         return convertView;
     }
