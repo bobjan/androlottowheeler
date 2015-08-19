@@ -14,7 +14,7 @@ import com.logotet.androlottowheeler.model.AllStatic;
 import com.logotet.androlottowheeler.model.Wheel;
 
 
-public class TestTabActivity extends AppCompatActivity {
+public class TwoTabbedActivity extends AppCompatActivity {
     Button btnFull;
     Button btnAbr;
 
@@ -33,7 +33,7 @@ public class TestTabActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_tab);
+        setContentView(R.layout.activity_twotabbed);
         context = getApplicationContext();
 
 

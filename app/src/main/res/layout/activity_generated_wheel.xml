@@ -10,26 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tvGenTitle"
+        android:text="jhdgfh h jhdfj jh   fdf jjk fkjf kjfh jhf jhf kjfkjhdf kjhfkjh dfjhdjfg kjfhg kjfd gkjg k hfj kjfg "
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/llGenCombs"
-        android:layout_below="@+id/tvGenTitle"
-        android:layout_alignParentLeft="true">
+
 
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/btnSendEmail"
+            android:layout_below="@id/tvGenTitle"
             android:id="@+id/lvGenRow"></ListView>
-
-
-    </LinearLayout>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llGenCombs"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/btnProceedEmail"
         android:text="send email"/>
 </RelativeLayout>

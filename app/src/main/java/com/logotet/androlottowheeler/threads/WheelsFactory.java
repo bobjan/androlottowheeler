@@ -106,14 +106,14 @@ public class WheelsFactory extends Thread {
     @Override
     public void run() {
         Wheel wheel;
-        Log.w(TAG, "Thread started");
+//        Log.w(TAG, "Thread started");
         AllStatic.wheelSystems.clear();
         AllStatic.wheelSystems = getWheels(AllStatic.numbersDrawn, AllStatic.lottoSize);
 
     }
 
     public ArrayList getWheels(int vrstaLotoa, int maxSistem) {
-        Log.w(TAG, "get wheels(" + vrstaLotoa + "," + maxSistem + ")");
+//        Log.w(TAG, "get wheels(" + vrstaLotoa + "," + maxSistem + ")");
         if ((wheels6 == null) || (wheels7 == null) || wheels5 == null)
             createCollections();
         switch (vrstaLotoa) {
@@ -138,7 +138,7 @@ public class WheelsFactory extends Thread {
     }
 
     private void createCollections() {
-        Log.w(TAG, "Create collesction");
+//        Log.w(TAG, "Create collesction");
         wheels5 = new ArrayList();
         wheels6 = new ArrayList();
         wheels7 = new ArrayList();

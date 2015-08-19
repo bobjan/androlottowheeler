@@ -43,7 +43,7 @@ public class MappingThread extends Thread {
     }
 
     private void prepareAbrWheels() {
-        Log.w(TAG, "Lotto size = " + AllStatic.numbersDrawn);
+//        Log.w(TAG, "Lotto size = " + AllStatic.numbersDrawn);
         switch (AllStatic.numbersDrawn) {
             case 5:
                 folder = "wheels/fives/";
@@ -109,7 +109,7 @@ public class MappingThread extends Thread {
                         break;
                 }
                 sistem.add(komb);
-                Log.w(TAG, linija);
+//                Log.w(TAG, linija);
             } catch (NullPointerException e) {
                 petlja = false;
             } catch (IllegalKombinacijaException e) {

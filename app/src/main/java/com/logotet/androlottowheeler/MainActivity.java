@@ -30,7 +30,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         startFromPreferences();
         testMetrics();
 
@@ -71,22 +70,19 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-
-//        akcija = new Intent(this, GridActivity.class);
-//        akcija = new Intent(this, SelectionActivity.class);
-        akcija = new Intent(this, TestTabActivity.class);
+        akcija = new Intent(this, TwoTabbedActivity.class);
         btnContinue = (Button) findViewById(R.id.btnContinue);
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AllStatic.lottoSize = numPicker.getValue();
+                AllStatic.tiket.clear();
                 for (int i = 0; i < AllStatic.lottoSize; i++) {
                     MyNumberCell myb = new MyNumberCell();
                     myb.setValue(i + 1);
                     myb.setPicked(false);
                     AllStatic.tiket.add(myb);
                 }
-
                 setPreferences();
 
                 FullWheelMaker fwm = new FullWheelMaker();
@@ -100,15 +96,14 @@ public class MainActivity extends ActionBarActivity {
         });
 
         btnSelection = (Button) findViewById(R.id.btnSelection);
-        testIntent = new Intent(this, SelectionActivity.class);
+        testIntent = new Intent(this, SendEmailActivity.class);
+
         btnSelection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(testIntent);
+//                startActivity(testIntent);
             }
         });
-
-
     }
 
     private void setPreferences() {

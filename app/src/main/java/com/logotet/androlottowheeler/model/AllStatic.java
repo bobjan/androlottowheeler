@@ -1,5 +1,6 @@
 package com.logotet.androlottowheeler.model;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -35,6 +36,7 @@ public class AllStatic {
     public static Sistem mappedSistem;
     public static Wheel selectedWheel;
 
+    public static File attachment;
 
     public static void recalculate() {
         int brojac = 0;
