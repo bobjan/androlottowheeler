@@ -83,7 +83,7 @@ public class TicketAdapter extends BaseAdapter {
             public void onClick(View v) {
                 myButton.switchState();
                 AllStatic.recalculate();
-                countText.setText("You picked " + AllStatic.pickedCounter + " number" + ((AllStatic.pickedCounter == 1) ? "" : "s"));
+                countText.setText("You selected " + AllStatic.pickedCounter + " number" + ((AllStatic.pickedCounter == 1) ? "" : "s"));
                 pickedNumbers.setText(AllStatic.pickedText);
                 changeDisplayAtributes();
                 notifyDataSetChanged();

@@ -30,11 +30,18 @@ public class TwoTabbedActivity extends AppCompatActivity {
     private ListView abrListView;
     private ListView fullListView;
 
+
+    private int clrSelected;
+    private int clrDeselected;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_twotabbed);
         context = getApplicationContext();
+
+        clrSelected = getResources().getColor(R.color.white);
+        clrDeselected = getResources().getColor(R.color.grey);
 
 
         btnFull = (Button) findViewById(R.id.btnFull);
@@ -47,9 +54,13 @@ public class TwoTabbedActivity extends AppCompatActivity {
         if (AllStatic.fullWheel) {
             llFull.setVisibility(View.VISIBLE);
             llAbr.setVisibility(View.GONE);
+            btnAbr.setBackgroundColor(clrDeselected);
+            btnFull.setBackgroundColor(clrSelected);
         } else {
             llFull.setVisibility(View.GONE);
             llAbr.setVisibility(View.VISIBLE);
+            btnFull.setBackgroundColor(clrDeselected);
+            btnAbr.setBackgroundColor(clrSelected);
         }
 
 
@@ -68,6 +79,8 @@ public class TwoTabbedActivity extends AppCompatActivity {
                 llFull.setVisibility(View.GONE);
                 llAbr.setVisibility(View.VISIBLE);
                 AllStatic.fullWheel = false;
+                btnFull.setBackgroundColor(clrDeselected);
+                btnAbr.setBackgroundColor(clrSelected);
             }
         });
 
@@ -78,6 +91,8 @@ public class TwoTabbedActivity extends AppCompatActivity {
                 llFull.setVisibility(View.VISIBLE);
                 llAbr.setVisibility(View.GONE);
                 AllStatic.fullWheel = true;
+                btnAbr.setBackgroundColor(clrDeselected);
+                btnFull.setBackgroundColor(clrSelected);
             }
         });
 

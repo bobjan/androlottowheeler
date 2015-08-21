@@ -20,7 +20,6 @@ public class MainActivity extends ActionBarActivity {
     private static final String TAG = "MainActivity";
     NumberPicker numPicker = null;
     Button btnContinue;
-    Button btnSelection;
     Intent akcija;
     RadioGroup radioGroup;
     Intent testIntent;
@@ -95,15 +94,6 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        btnSelection = (Button) findViewById(R.id.btnSelection);
-        testIntent = new Intent(this, SendEmailActivity.class);
-
-        btnSelection.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                startActivity(testIntent);
-            }
-        });
     }
 
     private void setPreferences() {

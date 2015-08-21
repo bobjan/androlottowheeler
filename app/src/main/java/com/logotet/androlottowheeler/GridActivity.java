@@ -10,6 +10,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.logotet.androlottowheeler.model.AllStatic;
+import com.logotet.androlottowheeler.model.Wheel;
 import com.logotet.androlottowheeler.threads.MappingThread;
 
 
@@ -35,7 +36,7 @@ public class GridActivity extends ActionBarActivity {
         warningText = (TextView) findViewById(R.id.tvWarning);
         titleLine = (TextView) findViewById(R.id.tvTitleLine);
 
-        titleLine.setText("Select your " + AllStatic.selectedWheel.getSelectionSize() + " numbers");
+        titleLine.setText(makeTitle());
 
         btnClear = (Button) findViewById(R.id.btnClear);
         btnGenerate = (Button) findViewById(R.id.btnGenerate);
@@ -78,6 +79,16 @@ public class GridActivity extends ActionBarActivity {
             }
         });
 
+    }
+
+    private String makeTitle() {
+        Wheel wheel = AllStatic.selectedWheel;
+        StringBuffer sb = new StringBuffer("You selected ");
+        sb.append(AllStatic.fullWheel ? "full " : "abbreviated");
+        sb.append(" wheel with " + wheel.getSelectionSize() + " numbers with guarantee " +  wheel.getGarancija() + " if " + wheel.getOdIzvucenih() + " drawn\n");
+        sb.append("The selected wheel has total " + wheel.getBrojKombinacija() + " combinations\n");
+        sb.append("Selected your " + wheel.getSelectionSize() + " numbers\n");
+        return sb.toString();
     }
 
 }
