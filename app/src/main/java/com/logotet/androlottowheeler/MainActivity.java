@@ -18,6 +18,7 @@ import com.logotet.androlottowheeler.threads.WheelsFactory;
 
 public class MainActivity extends ActionBarActivity {
     private static final String TAG = "MainActivity";
+
     NumberPicker numPicker = null;
     Button btnContinue;
     Intent akcija;
@@ -31,7 +32,6 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         startFromPreferences();
         testMetrics();
-
 
         numPicker = (NumberPicker) findViewById(R.id.numberPicker);
         numPicker.setMaxValue(99);
@@ -70,7 +70,9 @@ public class MainActivity extends ActionBarActivity {
         });
 
         akcija = new Intent(this, TwoTabbedActivity.class);
+
         btnContinue = (Button) findViewById(R.id.btnContinue);
+
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

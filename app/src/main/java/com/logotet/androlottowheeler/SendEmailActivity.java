@@ -47,8 +47,24 @@ import javax.mail.internet.MimeMultipart;
 public class SendEmailActivity extends ActionBarActivity {
     private static final String TAG = "SelndEmailActivity";
 
-    private static final String username = "boban.yankovic@gmail.com";
-    private static final String password = "$serbia$";
+
+    private static final String displaimer = "DISCLAIMER:The generated wheels don't guaranty any lotto win...AndroLottoWheeler is intended for interest only. " +
+            "We don't recommend that you gamble. We don't guarantee profit.  " +
+            "We don't guarantee the results. Use entirely at your own risk.";
+
+    private static final String someMsg = "*** This is an automatically generated email, please do not reply ***\n"+
+            "You have received a new order oThis is an automatically generated Delivery Status Notification.\n" +
+            " \n" +
+            "THIS IS A WARNING MESSAGE ONLY.\n" +
+            " \n" +
+            "YOU DO NOT NEED TO RESEND YOUR MESSAGE.\n" +
+            " \n" +
+            "Delivery to the following recipients has been delayed.The attached file is the document that you requested.The attachment is a draft Power Point presentation." +
+            "-- ovo je mozda najbolje --Please find the template agreement attached to this email." +
+            "The attached proposal includes ... The attached spreadsheet covers . . . ";
+
+    private static final String username = "android.logotet@gmail.com";
+    private static final String password = "serbia01A";
 
     private File file;
     String subject = "Lotto wheel";

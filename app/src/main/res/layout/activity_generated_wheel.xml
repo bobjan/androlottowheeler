@@ -1,31 +1,35 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.logotet.androlottowheeler.GeneratedWheelActivity">
 
     <TextView
+        android:id="@+id/tvGenTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tvGenTitle"
-        android:text="jhdgfh h jhdfj jh   fdf jjk fkjf kjfh jhf jhf kjfkjhdf kjhfkjh dfjhdjfg kjfhg kjfd gkjg k hfj kjfg "
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"/>
-
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/btnSendEmail"
-            android:layout_below="@id/tvGenTitle"
-            android:id="@+id/lvGenRow"></ListView>
+        android:layout_marginBottom="10dp"
+        android:text="@string/txt_nice" />
 
     <Button
+        android:id="@+id/btnProceedEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:id="@+id/btnProceedEmail"
-        android:text="send email"/>
+        android:text="@string/btn_sendemail" />
+
+
+    <ListView
+        android:id="@+id/lvGenRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnProceedEmail"
+        android:layout_below="@id/tvGenTitle"></ListView>
+
 </RelativeLayout>

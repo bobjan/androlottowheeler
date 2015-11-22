@@ -41,19 +41,16 @@ public class GridActivity extends ActionBarActivity {
         btnClear = (Button) findViewById(R.id.btnClear);
         btnGenerate = (Button) findViewById(R.id.btnGenerate);
 
-
         adapter = new TicketAdapter(this);
         adapter.setPickedNumbers(tvPickedNumbers);
         adapter.setCountText(countText);
         adapter.setWarningText(warningText);
         adapter.setBtnGenerate(btnGenerate);
 
-
         GridView gridview = (GridView) findViewById(R.id.ticketGrid);
         gridview.setAdapter(adapter);
 
         genIntent = new Intent(this, GeneratedWheelActivity.class);
-
 
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +75,6 @@ public class GridActivity extends ActionBarActivity {
 
             }
         });
-
     }
 
     private String makeTitle() {

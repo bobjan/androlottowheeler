@@ -1,93 +1,116 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-android:orientation="vertical"
- tools:context=".MainActivity"
-    android:layout_height="wrap_content">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="How many numbers drawn?"
-        android:id="@+id/uvodniTekst" />
-<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <LinearLayout
-        android:layout_width="0dp"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/uvodniTekst"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="0.5">
-        <TextView
-            android:layout_width="wrap_content"
+        android:text="@string/prompt_numbersdrawn" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Your lotto type"
-            android:id="@+id/pickTekst" />
+            android:layout_weight="0.5"
+            android:orientation="vertical">
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/rg_lottoType">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pick5" />
 
-            <RadioButton
-                android:layout_width="100dp"
+            <Button
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pick 5"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:id="@+id/rb_lotto5"
-                />
-            <RadioButton
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Pick 6"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:id="@+id/rb_lotto6"
-                />
-            <RadioButton
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Pick 7"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:id="@+id/rb_lotto7"
-                />
+                android:background="@drawable/pick6" />
 
-        </RadioGroup>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pick7" />
+
+            <TextView
+                android:id="@+id/pickTekst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prompt_lottotype" />
+
+            <RadioGroup
+                android:id="@+id/rg_lottoType"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_lotto5"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
+                    android:text="Pick 5" />
+
+                <RadioButton
+                    android:id="@+id/rb_lotto6"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
+                    android:text="Pick 6" />
+
+                <RadioButton
+                    android:id="@+id/rb_lotto7"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="1dp"
+                    android:text="Pick 7" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/sizeTekst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prompt_howmany" />
+
+            <NumberPicker
+                android:id="@+id/numberPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" />
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="How many numbers are in your lotto"
-            android:id="@+id/sizeTekst" />
-        <NumberPicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/numberPicker"
-            android:orientation="horizontal" />
 
 
-
-    </LinearLayout>
-
-
-
-</LinearLayout>
-
-
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="Continue"
-    android:id="@+id/btnContinue"/>
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bluebutton"
+        android:text="@string/btn_continue"
+        android:textColor="@color/white" />
 
 </LinearLayout>

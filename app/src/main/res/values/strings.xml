@@ -3,7 +3,28 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_sendemail">Send email</string>
-    <string name="title_activity_grid">Pick your numbers</string>
+    <string name="title_activity_grid">Select your numbers</string>
     <string name="title_activity_generated_wheel">Generated wheel</string>
-    <string name="title_activity_twotabbed">TwoTabbedActivity</string>
+    <string name="title_activity_twotabbed">Select wheeling system</string>
+
+    <string name="btn_clearall">Clear all</string>
+    <string name="btn_continue">Continue</string>
+    <string name="btn_generate">Generate combinations</string>
+    <string name="btn_sendemail">Send email</string>
+    <string name="btn_full">Full</string>
+    <string name="btn_abreviated">Abreviated</string>
+
+    <string name="prompt_numbersdrawn">How many numbers drawn?</string>
+    <string name="prompt_howmany">How many numbers are in your lotto</string>
+    <string name="prompt_lottotype">Your lotto type</string>
+    <string name="prompt_select">Select your numbers</string>
+
+    <string name="txt_warning">You selected more numbers than allowed</string>
+    <string name="txt_nice">Your generated wheel are below. You can email it for your convinience </string>
+
+    <string name="txt_numbers">numbers</string>
+    <string name="txt_combs">combinations</string>
+    <string name="txt_guarantee">guarantee</string>
+    <string name="txt_ifdrawn">if drawn</string>
+
 </resources>
